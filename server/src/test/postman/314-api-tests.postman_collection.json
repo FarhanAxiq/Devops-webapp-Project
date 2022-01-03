@@ -1,0 +1,363 @@
+{
+	"info": {
+		"_postman_id": "0bb335aa-0594-47a5-a237-2639092e0870",
+		"name": "CS314-t17-postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"    pm.expect(response.serverName).to.eql(\"t17 We Push To Main\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"config\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/config",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"config"
+					]
+				},
+				"description": "Testing the result of config POST requests."
+			},
+			"response": [
+				{
+					"name": "config",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestType\": \"config\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/config",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"config"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "find",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"    const expectedTeamName = pm.collectionVariables.get(\"t17 We Push To Main\");",
+							"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"requestType\": \"find\", \n    \"match\": \"\",\n    \"limit\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"find"
+					]
+				},
+				"description": "Testing the result of find POST requests."
+			},
+			"response": [
+				{
+					"name": "find",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"requestType\": \"find\", \n    \"match\": \"\",\n    \"limit\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/find",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"find"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "distance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"    const expectedTeamName = pm.collectionVariables.get(\"t17 We Push To Main\");",
+							"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"requestType\"    : \"distances\",\n  \"places\"         : [{\"name\":\"place A\", \"latitude\":  \"39.73\",  \"longitude\": \"-104.046\"},\n                      {\"name\": \"place B\", \"latitude\":  \"40.589\", \"longitude\": \"-105.084\"}],\n  \"earthRadius\"    : 3959.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/distances",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"distances"
+					]
+				},
+				"description": "Testing the result of distances POST requests."
+			},
+			"response": [
+				{
+					"name": "distance",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\"    : \"distances\",\n  \"places\"         : [{\"name\":\"place A\", \"latitude\":  \"39.73\",  \"longitude\": \"-104.046\"},\n                      {\"name\": \"place B\", \"latitude\":  \"40.589\", \"longitude\": \"-105.084\"}],\n  \"earthRadius\"    : 3959.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/distances",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"distances"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "tour",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response is HTTP200 status\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Server-side team name is correct\", () => {",
+							"    const response = pm.response.json();",
+							"    const expectedTeamName = pm.collectionVariables.get(\"t17 We Push To Main\");",
+							"    pm.expect(response.serverName).to.eql(expectedTeamName);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"requestType\"    : \"tour\",\n  \"response\" : 0.0,\n  \"places\"         : [{\"name\":\"place A\", \"latitude\":  \"39.73\",  \"longitude\": \"-104.046\"},\n                      {\"name\": \"place B\", \"latitude\":  \"40.589\", \"longitude\": \"-105.084\"}],\n  \"earthRadius\"    : 3959.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/tour",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"tour"
+					]
+				},
+				"description": "Testing the result of tour POST requests."
+			},
+			"response": [
+				{
+					"name": "tour",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"requestType\" : \"tour\",\n  \"response\"    : 0.0,\n  \"earthRadius\" : 3959.0,\n  \"places\"      :[{\"name\":\"place A\", \"latitude\":  \"39.73\",  \"longitude\": \"-104.046\"},\n                {\"name\": \"place B\", \"latitude\":  \"40.589\", \"longitude\": \"-105.084\"}]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/distances",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"distances"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CURRENT_VERSION",
+			"value": "1"
+		},
+		{
+			"key": "BASE_URL",
+			"value": "localhost:8000"
+		},
+		{
+			"key": "TEAM_NAME",
+			"value": "t17 We Push To Main"
+		}
+	]
+}

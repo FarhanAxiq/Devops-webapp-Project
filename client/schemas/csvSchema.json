@@ -1,0 +1,36 @@
+{
+    "$id": "https://example.com/address.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "trip",
+    "description": "trip file",
+    "type": "object",
+    "properties": {
+        "data": {
+            "description": "a list of places",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "latitude": {
+                        "type": "string",
+                        "pattern": "^[-+]?(?:90(?:(?:\\.0+)?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]+)?))$"
+                    },
+                    "longitude": {
+                        "type": "string",
+                        "pattern": "^[-+]?(?:180(?:(?:\\.0+)?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]+)?))$"
+                    }
+                },
+                "required": [
+                    "latitude",
+                    "longitude"
+                ],
+                "additionalProperties": true
+            },
+            "minitems": 0
+        }
+    },
+    "required": [
+        "data"
+    ],
+    "additionalProperties": true
+}
